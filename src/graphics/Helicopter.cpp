@@ -1,46 +1,51 @@
-#include <freeglut.h>
+#include "Helicopter.h"
+#include <windows.h>
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <GL/glut.h>
 #include <cmath>
 #define M_PI 3.14159265358979323846
 
-void drawCircle(float cx, float cy, float r, int seg = 60) {
+// Helper function to draw a filled circle
+static void drawCircleH(float cx, float cy, float r, int seg = 60) {
     glBegin(GL_TRIANGLE_FAN);
     glVertex2f(cx, cy);
     for (int i = 0; i <= seg; ++i) {
-        float a = 2.0f * M_PI * i / seg;
-        glVertex2f(cx + r * cos(a), cy + r * sin(a));
+        float a = 2.0f * (float)M_PI * i / seg;
+        glVertex2f(cx + r * cosf(a), cy + r * sinf(a));
     }
     glEnd();
 }
 
-void drawEllipse(float cx, float cy, float rx, float ry, int seg = 80) {
+// Helper function to draw a filled ellipse
+static void drawEllipseH(float cx, float cy, float rx, float ry, int seg = 80) {
     glBegin(GL_TRIANGLE_FAN);
     glVertex2f(cx, cy);
     for (int i = 0; i <= seg; ++i) {
-        float a = 2.0f * M_PI * i / seg;
-        glVertex2f(cx + rx * cos(a), cy + ry * sin(a));
+        float a = 2.0f * (float)M_PI * i / seg;
+        glVertex2f(cx + rx * cosf(a), cy + ry * sinf(a));
     }
     glEnd();
 }
 
-void display() {
-    glClearColor(0.05f, 0.05f, 0.05f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
-
+// Draws an enemy helicopter with body, rotor, door and window
+void drawHelicopter() {
     GLfloat BODY_COLOR[] = { 0.10f, 0.30f, 0.25f };
     GLfloat WINDOW_COLOR[] = { 0.12f, 0.15f, 0.16f };
     GLfloat DOOR_COLOR[] = { 0.16f, 0.55f, 0.45f };
     GLfloat WHITE_COLOR[] = { 0.90f, 0.90f, 0.90f };
 
-    float offsetX = 160.0f;
-    float offsetY = 120.0f;
+    float offsetX = -45.125f;
+    float offsetY = 21.935f;
 
     auto fx = [&](float left, float width) {
         return offsetX + left + width * 0.5f + 281.0f;
-        };
+    };
     auto fy = [&](float top, float height) {
         return offsetY - (top + height * 0.5f + 1724.0f);
-        };
+    };
 
+    // Main body
     {
         float w = 90.25f;
         float h = 44.79f;
@@ -49,9 +54,10 @@ void display() {
         float cx = fx(left, w);
         float cy = fy(top, h);
         glColor3fv(BODY_COLOR);
-        drawEllipse(cx, cy, w * 0.5f, h * 0.5f);
+        drawEllipseH(cx, cy, w * 0.5f, h * 0.5f);
     }
 
+    // Tail connector
     {
         float w = 67.86f;
         float h = 4.07f;
@@ -70,6 +76,7 @@ void display() {
         glEnd();
     }
 
+    // Tail vertical
     {
         float w = 4.07f;
         float h = 8.82f;
@@ -88,6 +95,7 @@ void display() {
         glEnd();
     }
 
+    // Tail rotor
     {
         float w = 14.25f;
         float h = 14.25f;
@@ -96,9 +104,10 @@ void display() {
         float cx = fx(left, w);
         float cy = fy(top, h);
         glColor3fv(WHITE_COLOR);
-        drawCircle(cx, cy, w * 0.5f);
+        drawCircleH(cx, cy, w * 0.5f);
     }
 
+    // Door
     {
         float w = 12.89f;
         float h = 22.39f;
@@ -117,6 +126,7 @@ void display() {
         glEnd();
     }
 
+    // Door handle
     {
         float w = 2.71f;
         float h = 2.71f;
@@ -125,9 +135,10 @@ void display() {
         float cx = fx(left, w);
         float cy = fy(top, h);
         glColor3fv(WHITE_COLOR);
-        drawCircle(cx, cy, w * 0.5f, 20);
+        drawCircleH(cx, cy, w * 0.5f, 20);
     }
 
+    // Rotor shaft
     {
         float w = 2.71f;
         float h = 5.43f;
@@ -146,6 +157,7 @@ void display() {
         glEnd();
     }
 
+    // Rotor hub
     {
         float w = 6.11f;
         float h = 6.79f;
@@ -154,9 +166,10 @@ void display() {
         float cx = fx(left, w);
         float cy = fy(top, h);
         glColor3fv(WHITE_COLOR);
-        drawEllipse(cx, cy, w * 0.5f, h * 0.5f);
+        drawEllipseH(cx, cy, w * 0.5f, h * 0.5f);
     }
 
+    // Main rotor blade
     {
         float w = 89.57f;
         float h = 2.04f;
@@ -175,6 +188,7 @@ void display() {
         glEnd();
     }
 
+    // Cockpit window
     {
         float w = 26.6f;
         float h = 20.7f;
@@ -183,16 +197,6 @@ void display() {
         float cx = fx(left, w);
         float cy = fy(top, h);
         glColor3fv(WINDOW_COLOR);
-        drawEllipse(cx, cy, w * 0.5f, h * 0.5f);
+        drawEllipseH(cx, cy, w * 0.5f, h * 0.5f);
     }
-
-    glFlush();
-}
-
-void init() {
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0.0, 320.0, 0.0, 240.0);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
 }
