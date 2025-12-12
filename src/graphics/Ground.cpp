@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <gdiplus.h>
-#pragma comment(lib, "gdiplus.lib")
 
 using namespace Gdiplus;
 

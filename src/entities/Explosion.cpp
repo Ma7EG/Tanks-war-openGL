@@ -4,7 +4,6 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 #include <gdiplus.h>
-#pragma comment(lib, "gdiplus.lib")
 
 using namespace Gdiplus;
 

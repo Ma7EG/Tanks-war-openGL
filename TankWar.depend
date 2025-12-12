@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1765548391 source:f:\tankwar\src\core\audio.cpp
+	"Audio.h"
+
+1765560681 f:\tankwar\src\core\audio.h
+	<windows.h>
+	<mmsystem.h>
+
+1765548174 source:f:\tankwar\src\core\gamestate.cpp
+	"GameState.h"
+	"Audio.h"
+
+1765531245 f:\tankwar\src\core\gamestate.h
+
