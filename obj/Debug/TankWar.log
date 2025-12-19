@@ -1,0 +1,5 @@
+﻿  Game.cpp
+F:\TankWar\src\core\Game.cpp(412,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+F:\TankWar\src\core\Game.cpp(419,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+F:\TankWar\src\core\Game.cpp(430,16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  TankWar.vcxproj -> F:\TankWar\bin\Debug\TankWar.exe

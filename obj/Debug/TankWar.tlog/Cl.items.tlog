@@ -1,0 +1,16 @@
+F:\TankWar\src\core\Game.cpp;F:\TankWar\obj\Debug\Game.obj
+F:\TankWar\src\core\GameState.cpp;F:\TankWar\obj\Debug\GameState.obj
+F:\TankWar\src\core\Audio.cpp;F:\TankWar\obj\Debug\Audio.obj
+F:\TankWar\src\entities\Bullet.cpp;F:\TankWar\obj\Debug\Bullet.obj
+F:\TankWar\src\entities\Enemy.cpp;F:\TankWar\obj\Debug\Enemy.obj
+F:\TankWar\src\entities\Smoke.cpp;F:\TankWar\obj\Debug\Smoke.obj
+F:\TankWar\src\entities\Explosion.cpp;F:\TankWar\obj\Debug\Explosion.obj
+F:\TankWar\src\entities\Player.cpp;F:\TankWar\obj\Debug\Player.obj
+F:\TankWar\src\graphics\Background.cpp;F:\TankWar\obj\Debug\Background.obj
+F:\TankWar\src\graphics\Building.cpp;F:\TankWar\obj\Debug\Building.obj
+F:\TankWar\src\graphics\Cloud.cpp;F:\TankWar\obj\Debug\Cloud.obj
+F:\TankWar\src\graphics\Ground.cpp;F:\TankWar\obj\Debug\Ground.obj
+F:\TankWar\src\graphics\Helicopter.cpp;F:\TankWar\obj\Debug\Helicopter.obj
+F:\TankWar\src\graphics\Mountain.cpp;F:\TankWar\obj\Debug\Mountain.obj
+F:\TankWar\src\graphics\Tank.cpp;F:\TankWar\obj\Debug\Tank.obj
+F:\TankWar\src\graphics\Tree.cpp;F:\TankWar\obj\Debug\Tree.obj
